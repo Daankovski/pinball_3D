@@ -1,0 +1,156 @@
+fileFormatVersion: 2
+guid: 4f8527602163e334aac357a27c4f62c1
+timeCreated: 1444122561
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 17084e3cac46cbcf13887a872b5d0725
+  longitude: -105.283
+  latitude: 40.017000000000003
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: .780286491, y: 1.65424454, z: 3.14006472}
+      lookAt: {x: .391971499, y: 1.39350915, z: 2.54257774}
+      up: {x: -.187251434, y: .939108789, z: -.288117379}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Backbox Back
+    100002: Backbox Bottom
+    100004: Backbox Right Side
+    100006: Backbox Right Side 1
+    100008: Backbox Top
+    100010: Cabinet Back
+    100012: Cabinet Bottom
+    100014: Cabinet Front
+    100016: Cabinet Right Side
+    100018: Cabinet Right Side 1
+    100020: Cabinet Top
+    100022: DMD Panel
+    100024: LED Bar
+    100026: //RootNode
+    400000: Backbox Back
+    400002: Backbox Bottom
+    400004: Backbox Right Side
+    400006: Backbox Right Side 1
+    400008: Backbox Top
+    400010: Cabinet Back
+    400012: Cabinet Bottom
+    400014: Cabinet Front
+    400016: Cabinet Right Side
+    400018: Cabinet Right Side 1
+    400020: Cabinet Top
+    400022: DMD Panel
+    400024: LED Bar
+    400026: //RootNode
+    2300000: Backbox Back
+    2300002: Backbox Bottom
+    2300004: Backbox Right Side
+    2300006: Backbox Right Side 1
+    2300008: Backbox Top
+    2300010: Cabinet Back
+    2300012: Cabinet Bottom
+    2300014: Cabinet Front
+    2300016: Cabinet Right Side
+    2300018: Cabinet Right Side 1
+    2300020: Cabinet Top
+    2300022: DMD Panel
+    2300024: LED Bar
+    3300000: Backbox Back
+    3300002: Backbox Bottom
+    3300004: Backbox Right Side
+    3300006: Backbox Right Side 1
+    3300008: Backbox Top
+    3300010: Cabinet Back
+    3300012: Cabinet Bottom
+    3300014: Cabinet Front
+    3300016: Cabinet Right Side
+    3300018: Cabinet Right Side 1
+    3300020: Cabinet Top
+    3300022: DMD Panel
+    3300024: LED Bar
+    4300000: Mesh Cabinet Bottom
+    4300002: Mesh Cabinet Front
+    4300004: Mesh Cabinet Back
+    4300006: Mesh Cabinet Right Side
+    4300008: Mesh Cabinet Top
+    4300010: Mesh LED Bar
+    4300012: Mesh DMD Panel
+    4300014: Mesh Backbox Right Side
+    4300016: Mesh Backbox Back
+    4300018: Mesh Backbox Top
+    4300020: Mesh Backbox Bottom
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .0253999997
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
