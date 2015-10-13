@@ -1,21 +1,28 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Pusher : MonoBehaviour {
 	private Rigidbody _rigidbody;
 	private Vector3 _position;
-	private float x;
-	private float _speed = 10f;
-
-	// Use this for initialization
+	private Vector3 initialPosition;
+	[SerializeField]
+	private float _speed = 0f;
+	
 	void Start () {
+		initialPosition = transform.position;
 		_rigidbody = GetComponent<Rigidbody> ();
 	}
-	
-	// Update is called once per frame
+
 	void FixedUpdate () {
-		_position = new Vector3 (x,0f,0f);
-		x = Input.GetAxis ("Jump");
-		_rigidbody.AddForce (_position*-_speed);
+		Debug.Log (initialPosition);
+		_position = new Vector3 (_speed,0f,0f);
+		_rigidbody.AddForce (_position*-_speed*Time.deltaTime);
+		if (Input.GetKey ("space")) {
+			_speed = 100f;
+		}
+		else{
+			_speed = 0f;
+			_rigidbody.position = initialPosition;
+		}
 	}
 }
