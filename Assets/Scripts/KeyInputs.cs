@@ -5,15 +5,12 @@ using System.Collections;
 public class KeyInputs : MonoBehaviour {
 
     public Flipper _flipper;
+    public Pusher _pusher;
 
     void Awake() {
         _flipper = GetComponent<Flipper>();
+        _pusher = GetComponentInChildren<Pusher>();
     }
-    
-    void Start() {
-        
-    }
-
 
     void Update () { 
         keyBoardLayout1();
@@ -22,21 +19,30 @@ public class KeyInputs : MonoBehaviour {
     }
 
     void keyBoardLayout1() {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            print("space key was pressed");
-            _flipper.Jump();
-
-            
+            _pusher.FixedUpdate();
+            if (_pusher._speed > -100)
+            {
+                _pusher.isPositive = true;
+                _pusher._speed -= 2.5f;
+            }
+        }
+        else
+        {
+            _pusher.isPositive = false;
+   
         }
 
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             print("left arrow was pressed");
-            
+
         }
 
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             print("right arrow was pressed");
         }
