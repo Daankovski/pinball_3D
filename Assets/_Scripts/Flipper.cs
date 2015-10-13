@@ -3,13 +3,13 @@ using System.Collections;
 
 public class Flipper : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    private float fJumpPower = 5.5f;
+    private bool isJumping = false;
+
+
+    public void Jump() {
+        print("Jump = " + fJumpPower);
+        isJumping = true;
+    }
+
 }
