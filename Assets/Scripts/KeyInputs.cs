@@ -21,20 +21,13 @@ public class KeyInputs : MonoBehaviour {
     void keyBoardLayout1() {
         if (Input.GetKey(KeyCode.Space))
         {
-            _pusher.FixedUpdate();
-            if (_pusher._speed > -100)
-            {
-                _pusher.isPositive = true;
-                _pusher._speed -= 2.5f;
-            }
+            pusherSettings();
         }
         else
         {
             _pusher.isPositive = false;
    
         }
-
-
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -73,5 +66,13 @@ public class KeyInputs : MonoBehaviour {
         }
     }
 
+    void pusherSettings() {
+        _pusher.FixedUpdate();
+        if (_pusher._speed > -100)
+        {
+            _pusher.isPositive = true;
+            _pusher._speed -= 2.5f;
+        }
+    }
 
 }

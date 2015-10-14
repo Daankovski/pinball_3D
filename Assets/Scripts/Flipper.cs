@@ -25,10 +25,6 @@ public class Flipper : MonoBehaviour {
 		}else{
 			transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, defaultRot, Time.deltaTime * speed);
 		}
-		if (Input.GetKey ("space")) {
-			open = true;
-		} else {
-			open = false;
-		}
+		
 	}
 }
