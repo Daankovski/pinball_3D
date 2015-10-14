@@ -18,7 +18,8 @@ public class Pusher : MonoBehaviour {
 		_position = new Vector3 (_speed,0f,0f);
 		_rigidbody.AddForce (_position*-_speed*Time.deltaTime);
 		if (Input.GetKey ("space")) {
-			_speed = 100f;
+			//_speed = 100f;
+			_speed = Random.Range(30,140);
 		}
 		else{
 			_speed = 0f;

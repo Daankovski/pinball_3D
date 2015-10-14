@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TestFlipper : MonoBehaviour {
 
-	private float speed = 500f;
+	private float speed = 200f;
 	[SerializeField]
 	private bool isLeft = false;
 	void Start () {
