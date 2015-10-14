@@ -13,18 +13,17 @@ public class Ball : MonoBehaviour {
 	void FixedUpdate() {
 		oldVel = myRigidbody.velocity;
 	}
-	
+
+	//When you hit a bumper
 	void OnCollisionEnter (Collision c) {
 		if(c.transform.tag == "Bumper"){
 			ContactPoint cp = c.contacts[0];
-			// calculate with addition of normal vector
-			// myRigidbody.velocity = oldVel + cp.normal*2.0f*oldVel.magnitude;
-			
-			// calculate with Vector3.Reflect
 			myRigidbody.velocity = Vector3.Reflect(oldVel,cp.normal);
-			
-			// bumper effect to speed up ball
+			//Move
 			myRigidbody.velocity += cp.normal*20.0f;
+			//Sound
+			//Score
+
 		}
 	}
 }
