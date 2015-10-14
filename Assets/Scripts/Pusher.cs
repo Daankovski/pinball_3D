@@ -18,7 +18,7 @@ public class Pusher : MonoBehaviour {
 
 	}
 
-<<<<<<< HEAD
+
     public void FixedUpdate () {
 		//Debug.Log (initialPosition);
 		_position = new Vector3 (_speed,0f,0f);

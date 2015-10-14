@@ -4,11 +4,11 @@ using System.Collections;
 
 public class KeyInputs : MonoBehaviour {
 
-    public Flipper _flipper;
+    public TestFlipper _flipper;
     public Pusher _pusher;
 
     void Awake() {
-        _flipper = GetComponent<Flipper>();
+        _flipper = GetComponent<TestFlipper>();
         _pusher = GetComponentInChildren<Pusher>();
     }
 
