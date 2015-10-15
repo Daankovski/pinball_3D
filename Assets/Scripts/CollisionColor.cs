@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CollisionColor : MonoBehaviour {
 
+	//Made by Danny Kruiswijk
+	
 	private Renderer rend;
 	private Color color;
 

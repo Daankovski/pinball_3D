@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class Flipper : MonoBehaviour {
+
+	//Made by Danny Kruiswijk
+
 	[SerializeField]
 	private float speed = 15.0f;
 	private float DoorOpenAngle = -90.0f;

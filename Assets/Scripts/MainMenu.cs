@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainMenu : MonoBehaviour 
-{
+public class MainMenu : MonoBehaviour{
+
+	//Made by Danny Kruiswijk
+
 	[SerializeField]
 	private GUISkin gameSkin;
 	private string gameName = "3D Pinball";
