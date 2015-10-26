@@ -3,6 +3,8 @@ using System.Collections;
 
 public class RandomColors : MonoBehaviour {
 
+	//Made by Danny Kruiswijk
+	
 	private Renderer rend;
 	private int randomNumber;
 

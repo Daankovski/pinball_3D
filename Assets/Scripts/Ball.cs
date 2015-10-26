@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class Ball : MonoBehaviour {
-	
+
+	//Made by Danny Kruiswijk
+
 	Rigidbody myRigidbody;
 	Vector3 oldVel;
 	
@@ -23,7 +25,6 @@ public class Ball : MonoBehaviour {
 			myRigidbody.velocity += cp.normal*20.0f;
 			//Sound
 			//Score
-
 		}
 	}
 }
