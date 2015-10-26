@@ -20,25 +20,27 @@ public class Remover : MonoBehaviour {
 			//Sound
 			switch (lives) {
 			case 2:
-				Destroy(GameObject.Find("UIBall3"));
+				Destroy (GameObject.Find ("UIBall3"));
 				break;
 			case 1:
-				Destroy(GameObject.Find("UIBall2"));
+				Destroy (GameObject.Find ("UIBall2"));
 				break;
 			case 0:
-				Destroy(GameObject.Find("UIBall1"));
+				Destroy (GameObject.Find ("UIBall1"));
 				break;
 			case -1:
-				Destroy(GameObject.Find("Ball"));
+				Destroy (GameObject.Find ("Ball"));
 				break;
 			}
-			if(lives>-1){
-			float time = ball.getTrail();
-			ball.removeTrail();
-			ball.myRigidbody.position = ball.initialPosition;
-			ball.myRigidbody.velocity = new Vector3(0f,0f,0f);
-			StartCoroutine(MyMethod(time));
+			if (lives > -1) {
+				float time = ball.getTrail ();
+				ball.removeTrail ();
+				ball.myRigidbody.position = ball.initialPosition;
+				ball.myRigidbody.velocity = new Vector3 (0f, 0f, 0f);
+				StartCoroutine (MyMethod (time));
 			}
+		} else if (other.transform.tag == "ExtraBall") {
+			Destroy(other.gameObject);
 		}
 	}
 

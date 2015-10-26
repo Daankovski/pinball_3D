@@ -7,13 +7,16 @@ public class Ball : MonoBehaviour {
 
 	[HideInInspector] public Rigidbody myRigidbody;
 	Vector3 oldVel;
-	[SerializeField] private Score score;
+	private GameObject cameraObject;
+	private Score score;
 	[HideInInspector] public Vector3 initialPosition;
 	private TrailRenderer trail;
 	
 	void Start () {
 		myRigidbody = GetComponent<Rigidbody>();
 		trail = GetComponent<TrailRenderer> ();
+		cameraObject = GameObject.Find ("Main Camera");
+		score = cameraObject.GetComponent<Score>();
 		initialPosition = transform.position;
 	}
 

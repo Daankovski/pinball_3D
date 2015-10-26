@@ -4,17 +4,16 @@ using System.Collections;
 public class WallPlacer : MonoBehaviour {
 
 	//Made by Danny Kruiswijk
+
 	private GameObject wall;
 	private Vector3 initialPosition;
 	private bool isTrigger;
-
-	// Use this for initialization
+	
 	void Start () {
 		wall = GameObject.Find ("BallWall");
 		initialPosition = new Vector3 (110.19f,162.59f,-91.38f);
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		switch (isTrigger) {
 		case true:
@@ -27,13 +26,13 @@ public class WallPlacer : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.transform.tag == "Ball") {
+		if (other.transform.tag == "Ball" || other.transform.tag == "ExtraBall") {
 			isTrigger = true;
 		}
 	}
 
 	void OnTriggerExit(Collider other){
-		if(other.transform.tag == "Ball"){
+		if(other.transform.tag == "Ball" || other.transform.tag == "ExtraBall"){
 			isTrigger = false;
 		}
 	}
