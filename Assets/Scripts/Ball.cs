@@ -6,7 +6,7 @@ public class Ball : MonoBehaviour {
 	//Made by Danny Kruiswijk
 
 	[HideInInspector] public Rigidbody myRigidbody;
-	Vector3 oldVel;
+	private Vector3 oldVel;
 	private GameObject cameraObject;
 	private Score score;
 	[HideInInspector] public Vector3 initialPosition;

@@ -12,6 +12,7 @@ public class WallPlacer : MonoBehaviour {
 	void Start () {
 		wall = GameObject.Find ("BallWall");
 		initialPosition = new Vector3 (110.19f,162.59f,-91.38f);
+		isTrigger = false;
 	}
 
 	void Update () {
@@ -26,14 +27,34 @@ public class WallPlacer : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.transform.tag == "Ball" || other.transform.tag == "ExtraBall") {
+		if (other.transform.tag == "Ball") {
 			isTrigger = true;
 		}
 	}
 
 	void OnTriggerExit(Collider other){
-		if(other.transform.tag == "Ball" || other.transform.tag == "ExtraBall"){
+		if(other.transform.tag == "Ball"){
 			isTrigger = false;
 		}
 	}
+	/*
+	void OnTriggerStay(Collider other){
+		switch (other.transform.tag) {
+		case "Ball":
+			Debug.Log("Ball");
+			isTrigger = true;
+			break;
+		case "ExtraBall":
+			isTrigger = true;
+			break;
+		default:
+			Debug.Log("Hallo");
+			isTrigger = false;
+			break;
+		}
+		if (other.transform.tag == "Ball" || other.transform.tag == "ExtraBall") {
+			isTrigger = true;
+		}
+	}
+	*/
 }

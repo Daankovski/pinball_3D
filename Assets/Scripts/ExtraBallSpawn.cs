@@ -8,20 +8,19 @@ public class ExtraBallSpawn : MonoBehaviour {
 
 	[SerializeField] private List<GameObject> prefabs = new List<GameObject>();
 	[SerializeField] private TextMesh textMesh;
+	private ParticleSystem particleSystem;
 	private bool canSpawn = true;
 	private int timer = 1000;
 	private float zValue;
 	private bool goRight = false;
-
-	// Use this for initialization
+	
 	void Start () {
 		zValue = textMesh.transform.position.z;
+		particleSystem = GetComponentInChildren<ParticleSystem> ();
 	}
-	
-	// Update is called once per frame
+
 	void FixedUpdate () {
 		textMesh.transform.position = new Vector3(textMesh.transform.position.x,textMesh.transform.position.y,zValue);
-		//Debug.Log (timer);
 		if (canSpawn == false) {
 			timer --;
 		}
@@ -41,6 +40,7 @@ public class ExtraBallSpawn : MonoBehaviour {
 	void OnCollisionEnter (Collision c) {
 		if(c.transform.tag == "Ball" && canSpawn == true){
 			GameObject extraBallSpawn = (GameObject)Instantiate(prefabs[0], new Vector3(106.08f,172.73f,-102.58f), transform.rotation);
+			particleSystem.Play();
 			goRight = true;
 			canSpawn = false;
 		}
