@@ -12,69 +12,51 @@ public class Inputs : MonoBehaviour {
     private Pusher _pusher;
 
     void Awake() {
-        _flipperL = GetComponent<TestFlipper>();
-        _flipperR = GetComponent<TestFlipper>();
         _pusher = GetComponentInChildren<Pusher>();
     }
 
-    void Update () { 
+    void FixedUpdate () { 
         keyBoardLayout1();
-        keyBoardLayout2();
-        keyBoardLayout3();
     }
 
-    void keyBoardLayout1() {
-        if (Input.GetKeyDown(KeyCode.Space))
+    void keyBoardLayout1()
+    {
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0))
         {
-            _pusher.FixedUpdate();
-            if (_pusher._speed < 60 || _pusher._speed < 140)
+            if (_pusher._Speed < 60 || _pusher._Speed < 140)
             {
-                _pusher.isPositive = true;
+                _pusher.OnKeyDown = true;
+
             }
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-
-           _pusher.isPositive = false;
 
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else
         {
-            print("left arrow was pressed");
 
+            _pusher.OnKeyDown = false;
+            _pusher.Mass = 1f;
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Keypad4) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.JoystickButton4))
         {
-            print("right arrow was pressed");
+            _flipperL.LeftFlipper = true;
+        }
+
+        else
+        {
+            _flipperL.LeftFlipper = false;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.Keypad6) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.JoystickButton5))
+        {
+            _flipperR.RightFlipper = true;
+
+
+        }
+        else
+        {
+            _flipperR.RightFlipper = false;
         }
 
     }
-
-    void keyBoardLayout2() {
-        if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            print("numpad 4 is pressed");
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Keypad6))
-        {
-            print("numpad 6 is pressed");
-        }
-    }
-
-    void keyBoardLayout3() {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            print("A is pressed");
-        }
-
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            print("D is pressed");
-        }
-    }
-
-
 }
