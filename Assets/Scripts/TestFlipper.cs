@@ -5,7 +5,7 @@ public class TestFlipper : MonoBehaviour {
 
 	//Made by Danny Kruiswijk
 	
-	private float speed = 200f;
+	private float speed = 600f;
 	[SerializeField]
 	private bool isLeft = false;
 	void Start () {
@@ -16,8 +16,8 @@ public class TestFlipper : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		//Debug.DrawRay (this.transform.position, transform.forward,Color.blue);
-		//Debug.DrawRay (this.GetComponent<Rigidbody>().worldCenterOfMass,Vector3.up,Color.red);
+		Debug.DrawRay (this.transform.position, transform.forward,Color.blue);
+		Debug.DrawRay (this.GetComponent<Rigidbody>().worldCenterOfMass,Vector3.up,Color.red);
 		switch(isLeft){
 		case true:
 			if (Input.GetKey ("left")) {
