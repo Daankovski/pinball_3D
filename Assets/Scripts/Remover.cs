@@ -46,4 +46,3 @@ public class Remover : MonoBehaviour {
 			ball.setTrail (time);
 	}
 }
-

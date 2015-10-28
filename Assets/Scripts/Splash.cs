@@ -3,6 +3,9 @@ using System.Collections;
 using System;
 
 public class Splash : MonoBehaviour {
+
+	//Made by Danny Kruiswijk
+
 	void Start () {
 		StartCoroutine("ChangeScreen");
 		transform.position = new Vector3(-35, 1, 0);

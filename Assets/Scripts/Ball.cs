@@ -34,6 +34,12 @@ public class Ball : MonoBehaviour {
 	
 	void FixedUpdate() {
 		oldVel = myRigidbody.velocity;
+		if (myRigidbody.position.y != 172.7f) {
+			myRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+		} else {
+			myRigidbody.constraints = RigidbodyConstraints.None;
+			myRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
+		}
 	}
 
 	//When you hit a bumper

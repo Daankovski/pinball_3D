@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PointTextScript : MonoBehaviour {
 
+	//Made by Danny Kruiswijk
+
 	private float yValue;
 
 	// Use this for initialization
