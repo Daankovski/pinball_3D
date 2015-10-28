@@ -6,7 +6,7 @@ public class Remover : MonoBehaviour {
 
 	//Made by Danny Kruiswijk
 
-	private int lives = 3;
+	private int lives = 2;
 	private Vector3 ballPosition;
 	[SerializeField] private Ball ball;
 
@@ -19,9 +19,6 @@ public class Remover : MonoBehaviour {
 			lives --;
 			//Sound
 			switch (lives) {
-			case 2:
-				Destroy (GameObject.Find ("UIBall3"));
-				break;
 			case 1:
 				Destroy (GameObject.Find ("UIBall2"));
 				break;

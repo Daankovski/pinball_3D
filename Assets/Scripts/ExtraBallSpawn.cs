@@ -29,7 +29,7 @@ public class ExtraBallSpawn : MonoBehaviour {
 			canSpawn = true;
 		}
 		if (goRight == true) {
-			zValue += 0.75f;
+			zValue += 0.65f;
 		}
 		if (textMesh.transform.position.z >= 0) {
 			goRight = false;
