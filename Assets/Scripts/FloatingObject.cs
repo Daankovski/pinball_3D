@@ -8,14 +8,16 @@ public class FloatingObject : MonoBehaviour {
     private float count = 0f;
     private int number = 0;
     private float timer = 0.0f;
-    public float verticalSpeed = 1.0f;
-    public float verticalDistance = 1.0f;
+    private float verticalSpeed = 1.0f;
+    private float verticalDistance = 1.0f;
+	private Light light;
 	
 	void Start () {
-
+		light = GetComponentInChildren<Light> ();
 	}
 
 	void FixedUpdate () {
+		light.color = new Color (Random.Range(0,255),Random.Range(0,255),Random.Range(0,255));
 	    if(count < Mathf.PI && number == 0){
 	        count += Time.deltaTime;
 	    }

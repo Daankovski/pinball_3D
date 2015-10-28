@@ -9,12 +9,15 @@ public class Remover : MonoBehaviour {
 	private int lives = 2;
 	private Vector3 ballPosition;
 	[SerializeField] private Ball ball;
+	private AudioSource audioSource;
 
 	void Start () {
-		ballPosition = GameObject.Find ("Ball").transform.position;
+		ballPosition = new Vector3 (136.47f,172.7f,-91.29f);
+		audioSource = GetComponent<AudioSource> ();
 	}
 
 	void OnCollisionEnter (Collision other) {
+		audioSource.Play ();
 		if (other.transform.tag == "Ball") {
 			lives --;
 			//Sound
@@ -32,7 +35,7 @@ public class Remover : MonoBehaviour {
 			if (lives > -1) {
 				float time = ball.getTrail ();
 				ball.removeTrail ();
-				ball.myRigidbody.position = ball.initialPosition;
+				ball.myRigidbody.position = ballPosition;
 				ball.myRigidbody.velocity = new Vector3 (0f, 0f, 0f);
 				StartCoroutine (MyMethod (time));
 			}
