@@ -16,6 +16,7 @@ public class FloatingObject : MonoBehaviour {
 		light = GetComponentInChildren<Light> ();
 	}
 
+	//Floating the UFO and emitting light on top of it
 	void FixedUpdate () {
 		light.color = new Color (Random.Range(0,255),Random.Range(0,255),Random.Range(0,255));
 	    if(count < Mathf.PI && number == 0){

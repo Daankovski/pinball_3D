@@ -5,11 +5,11 @@ public class Ball : MonoBehaviour {
 
 	//Made by Danny Kruiswijk
 
-	[HideInInspector] public Rigidbody myRigidbody;
+	private Rigidbody myRigidbody; 
 	private Vector3 oldVel;
 	private GameObject cameraObject;
 	private Score score;
-	[HideInInspector] public Vector3 initialPosition;
+	private Vector3 initialPosition;
 	private TrailRenderer trail;
 	
 	void Start () {
@@ -20,20 +20,34 @@ public class Ball : MonoBehaviour {
 		initialPosition = transform.position;
 	}
 
-	public void setTrail(float time){
-		trail.time = time;
-	}
-
-	public float getTrail(){
+	//Get Trail
+	public float getterTrail(){
 		return trail.time;
 	}
 
+	//Set Trail
+	public void setterTrail(float time){
+		trail.time = time;
+	}
+
+	//Get Rigidbody
+	public Rigidbody getterRigidBody(){
+		return myRigidbody;
+	}
+
+	//Set Rigidbody
+	public void setterRigidBody(Rigidbody value){
+		myRigidbody = value;
+	}
+
+	//Remove Trail
 	public void removeTrail(){
 		trail.time = 0;
 	}
 	
 	void FixedUpdate() {
 		oldVel = myRigidbody.velocity;
+		//When falling from the rocket
 		if (myRigidbody.position.y != 172.7f) {
 			myRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 		} else {
@@ -48,10 +62,7 @@ public class Ball : MonoBehaviour {
 			score.addScore10();
 			ContactPoint cp = c.contacts[0];
 			myRigidbody.velocity = Vector3.Reflect(oldVel,cp.normal);
-			//Move
 			myRigidbody.velocity += cp.normal*20.0f;
-			//Sound
-			//Score
 		}
 	}
 }

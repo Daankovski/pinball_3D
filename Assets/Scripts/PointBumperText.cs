@@ -14,6 +14,7 @@ public class PointBumperText : MonoBehaviour {
 		audioSource = GetComponent<AudioSource> ();
 	}
 
+	//Spawn 10 point text when getting hit
 	void OnCollisionEnter (Collision c) {
 		audioSource.Play ();
 		GameObject pointTextSpawn = (GameObject)Instantiate(prefabs[0], new Vector3(transform.position.x,transform.position.y + 1.5f,transform.position.z - 0.94f),rotation);

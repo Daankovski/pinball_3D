@@ -7,9 +7,12 @@ public class CirclingPlane : MonoBehaviour {
 
 	[SerializeField] private Vector3 velocity;
 	private Rigidbody rb;
+
 	void Start() {
 		rb = GetComponent<Rigidbody>();
 	}
+
+	//Rotating the sattelite
 	void FixedUpdate() {
 		Quaternion deltaRotation = Quaternion.Euler(velocity * Time.deltaTime);
 		rb.MoveRotation(rb.rotation * deltaRotation);

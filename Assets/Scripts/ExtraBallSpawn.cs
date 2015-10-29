@@ -15,8 +15,6 @@ public class ExtraBallSpawn : MonoBehaviour {
 	private float zValue;
 	private bool goRight = false;
 	private bool allowedToSpawn = true;
-	//private AudioSource audioSource;
-	//[SerializeField] private AudioClip rocketSound;
 	public AudioSource[] sounds;
 	public AudioSource audio1;
 	public AudioSource audio2;
@@ -30,7 +28,9 @@ public class ExtraBallSpawn : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
+		//Moving the flying 'Extra ball' text on the rocket
 		textMesh.transform.position = new Vector3(textMesh.transform.position.x,textMesh.transform.position.y,zValue);
+		//The countdown seen on the satellite dish counting down wheter you can get an extra ball or not
 		countdownMesh.text = ""+(timer / 100);
 		if (canSpawn == false) {
 			timer --;
@@ -39,28 +39,30 @@ public class ExtraBallSpawn : MonoBehaviour {
 			canSpawn = true;
 			allowedToSpawn = true;
 		}
+		//Moving the rocket/text
 		if (goRight == true) {
 			zValue += 0.65f;
 		}
+		//Returning the rocket back to it's original position
 		if (textMesh.transform.position.z >= 0) {
 			goRight = false;
 			zValue = -200f;
 			audio1.Stop();
-			//AudioSource.stop();
 		}
+		//Spawning and dropping the extra ball from the rocket
 		if(textMesh.transform.position.z >= -113 && allowedToSpawn){
 			allowedToSpawn = false;
 			GameObject extraBallSpawn = (GameObject)Instantiate(prefabs[0], new Vector3(textMesh.transform.position.x,textMesh.transform.position.y,textMesh.transform.position.z+10f), transform.rotation);
 		}
 	}
 
+	//Playing sounds and particle effects once the Satellite dish has been hit
 	void OnCollisionEnter (Collision c) {
 		if(canSpawn){
 			timer = 1500;
 			particleSystem.Play();
 			audio1.Play();
 			audio2.Play();
-			//AudioSource.PlayClipAtPoint(rocketSound, new Vector3(5, 1, 2));
 			goRight = true;
 			canSpawn = false;
 		}

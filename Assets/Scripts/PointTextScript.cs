@@ -6,13 +6,12 @@ public class PointTextScript : MonoBehaviour {
 	//Made by Danny Kruiswijk
 
 	private float yValue;
-
-	// Use this for initialization
+	
 	void Start () {
 		yValue = transform.position.y;
 	}
-	
-	// Update is called once per frame
+
+	//The 10 point text above Bumpers
 	void Update () {
 		yValue += 0.075f;
 		transform.position = new Vector3 (transform.position.x,yValue,transform.position.z);

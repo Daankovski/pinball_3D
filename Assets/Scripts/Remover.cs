@@ -10,17 +10,21 @@ public class Remover : MonoBehaviour {
 	private Vector3 ballPosition;
 	[SerializeField] private Ball ball;
 	private AudioSource audioSource;
+	private Rigidbody otherRigidBody;
 
 	void Start () {
+		//Initial ball position
 		ballPosition = new Vector3 (136.47f,172.7f,-91.29f);
 		audioSource = GetComponent<AudioSource> ();
 	}
 
+	//Whenver the invisible remove wall is hit
 	void OnCollisionEnter (Collision other) {
+		otherRigidBody = ball.getterRigidBody ();
 		audioSource.Play ();
 		if (other.transform.tag == "Ball") {
 			lives --;
-			//Sound
+			//Remove the 'Balls left' UI
 			switch (lives) {
 			case 1:
 				Destroy (GameObject.Find ("UIBall2"));
@@ -32,11 +36,13 @@ public class Remover : MonoBehaviour {
 				Destroy (GameObject.Find ("Ball"));
 				break;
 			}
+			//When out of balls
 			if (lives > -1) {
-				float time = ball.getTrail ();
+				float time = ball.getterTrail ();
 				ball.removeTrail ();
-				ball.myRigidbody.position = ballPosition;
-				ball.myRigidbody.velocity = new Vector3 (0f, 0f, 0f);
+				otherRigidBody.position = ballPosition;
+				otherRigidBody.velocity = new Vector3 (0f, 0f, 0f);
+				ball.setterRigidBody(otherRigidBody);
 				StartCoroutine (MyMethod (time));
 			}
 		} else if (other.transform.tag == "ExtraBall") {
@@ -44,8 +50,9 @@ public class Remover : MonoBehaviour {
 		}
 	}
 
+	//Removing the trail and reapplying when the ball gets teleported
 	IEnumerator MyMethod(float time) {
 			yield return new WaitForSeconds (1);
-			ball.setTrail (time);
+			ball.setterTrail (time);
 	}
 }
