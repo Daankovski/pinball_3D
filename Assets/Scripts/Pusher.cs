@@ -8,7 +8,7 @@ public class Pusher : MonoBehaviour {
 	private Rigidbody _rigidbody;
 	private Vector3 _position;
 	private Vector3 initialPosition;
-	[SerializeField] private float _speed = 0f;
+	private float _speed = 0f;
 	
 	void Start () {
 		initialPosition = transform.position;
