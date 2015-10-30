@@ -8,39 +8,61 @@ public class ExtraBallSpawn : MonoBehaviour {
 
 	[SerializeField] private List<GameObject> prefabs = new List<GameObject>();
 	[SerializeField] private TextMesh textMesh;
+	[SerializeField] private TextMesh countdownMesh;
+	private ParticleSystem particleSystem;
 	private bool canSpawn = true;
-	private int timer = 1000;
+	private int timer = 0;
 	private float zValue;
 	private bool goRight = false;
-
-	// Use this for initialization
+	private bool allowedToSpawn = true;
+	public AudioSource[] sounds;
+	public AudioSource audio1;
+	public AudioSource audio2;
+	
 	void Start () {
 		zValue = textMesh.transform.position.z;
+		particleSystem = GetComponentInChildren<ParticleSystem> ();
+		sounds = GetComponents<AudioSource> ();
+		audio1 = sounds[0];
+		audio2 = sounds[1];
 	}
-	
-	// Update is called once per frame
+
 	void FixedUpdate () {
+		//Moving the flying 'Extra ball' text on the rocket
 		textMesh.transform.position = new Vector3(textMesh.transform.position.x,textMesh.transform.position.y,zValue);
-		//Debug.Log (timer);
+		//The countdown seen on the satellite dish counting down wheter you can get an extra ball or not
+		countdownMesh.text = ""+(timer / 100);
 		if (canSpawn == false) {
 			timer --;
 		}
 		if(timer <= 1){
-			timer = 1000;
 			canSpawn = true;
+			allowedToSpawn = true;
 		}
+		//Moving the rocket/text
 		if (goRight == true) {
-			zValue += 1f;
+			zValue += 0.65f;
 		}
+		//Returning the rocket back to it's original position
 		if (textMesh.transform.position.z >= 0) {
 			goRight = false;
-			zValue = -190f;
+			zValue = -200f;
+			audio1.Stop();
+		}
+		//Spawning and dropping the extra ball from the rocket
+		if(textMesh.transform.position.z >= -113 && allowedToSpawn){
+			allowedToSpawn = false;
+			GameObject extraBallSpawn = (GameObject)Instantiate(prefabs[0], new Vector3(textMesh.transform.position.x,textMesh.transform.position.y,textMesh.transform.position.z+10f), transform.rotation);
 		}
 	}
 
+	//Playing sounds and particle effects once the Satellite dish has been hit
 	void OnCollisionEnter (Collision c) {
-		if(c.transform.tag == "Ball" && canSpawn == true){
-			GameObject extraBallSpawn = (GameObject)Instantiate(prefabs[0], new Vector3(106.08f,172.73f,-102.58f), transform.rotation);
+		if(canSpawn){
+			timer = 1500;
+			particleSystem.Play();
+			audio1.Play();
+			audio2.Play();
 			goRight = true;
 			canSpawn = false;
 		}

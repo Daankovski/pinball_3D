@@ -4,6 +4,7 @@ using System.Collections;
 public class RandomColors : MonoBehaviour {
 
 	//Made by Danny Kruiswijk
+	//This script is not being used anymore, please ignore
 	
 	private Renderer rend;
 	private int randomNumber;

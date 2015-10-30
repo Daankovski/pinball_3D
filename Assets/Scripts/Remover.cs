@@ -9,34 +9,45 @@ public class Remover : MonoBehaviour {
 	private int lives = 3;
 	private Vector3 ballPosition;
 	[SerializeField] private Ball ball;
+	private AudioSource audioSource;
+	private Rigidbody otherRigidBody;
+	private phpSender sender;
 
 	void Start () {
-		ballPosition = GameObject.Find ("Ball").transform.position;
+		sender = GameObject.Find ("PHPScoreScript").GetComponent<phpSender>();
+		//Initial ball position
+		ballPosition = new Vector3 (136.47f,172.7f,-91.29f);
+		audioSource = GetComponent<AudioSource> ();
 	}
 
+	//Whenver the invisible remove wall is hit
 	void OnCollisionEnter (Collision other) {
+		otherRigidBody = ball.getterRigidBody ();
+		audioSource.Play ();
 		if (other.transform.tag == "Ball") {
 			lives --;
-			//Sound
+			//Remove the 'Balls left' UI
 			switch (lives) {
 			case 2:
-				Destroy (GameObject.Find ("UIBall3"));
-				break;
-			case 1:
 				Destroy (GameObject.Find ("UIBall2"));
 				break;
-			case 0:
+			case 1:
 				Destroy (GameObject.Find ("UIBall1"));
 				break;
-			case -1:
+			case 0:
 				Destroy (GameObject.Find ("Ball"));
 				break;
 			}
-			if (lives > -1) {
-				float time = ball.getTrail ();
+			//When out of balls
+			if (lives == 0) {
+				sender.startSendingProcess();
+			}
+			if(lives > 0){
+				float time = ball.getterTrail ();
 				ball.removeTrail ();
-				ball.myRigidbody.position = ball.initialPosition;
-				ball.myRigidbody.velocity = new Vector3 (0f, 0f, 0f);
+				otherRigidBody.position = ballPosition;
+				otherRigidBody.velocity = new Vector3 (0f, 0f, 0f);
+				ball.setterRigidBody(otherRigidBody);
 				StartCoroutine (MyMethod (time));
 			}
 		} else if (other.transform.tag == "ExtraBall") {
@@ -44,9 +55,9 @@ public class Remover : MonoBehaviour {
 		}
 	}
 
+	//Removing the trail and reapplying when the ball gets teleported
 	IEnumerator MyMethod(float time) {
 			yield return new WaitForSeconds (1);
-			ball.setTrail (time);
+			ball.setterTrail (time);
 	}
 }
-

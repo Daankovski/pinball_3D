@@ -6,17 +6,12 @@ public class ParticlePlayer : MonoBehaviour {
 	//Made by Danny Kruiswijk
 
 	private ParticleSystem PS;
-
-	// Use this for initialization
+	
 	void Start () {
 		PS = GetComponentInChildren<ParticleSystem> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
+	//Play certain particle effects once the object has been hit by the ball
 	void OnCollisionEnter (Collision c) {
 		PS.Play ();
 	}
