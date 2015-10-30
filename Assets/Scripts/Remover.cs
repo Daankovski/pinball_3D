@@ -6,13 +6,15 @@ public class Remover : MonoBehaviour {
 
 	//Made by Danny Kruiswijk
 
-	private int lives = 2;
+	private int lives = 3;
 	private Vector3 ballPosition;
 	[SerializeField] private Ball ball;
 	private AudioSource audioSource;
 	private Rigidbody otherRigidBody;
+	private phpSender sender;
 
 	void Start () {
+		sender = GameObject.Find ("PHPScoreScript").GetComponent<phpSender>();
 		//Initial ball position
 		ballPosition = new Vector3 (136.47f,172.7f,-91.29f);
 		audioSource = GetComponent<AudioSource> ();
@@ -26,18 +28,21 @@ public class Remover : MonoBehaviour {
 			lives --;
 			//Remove the 'Balls left' UI
 			switch (lives) {
-			case 1:
+			case 2:
 				Destroy (GameObject.Find ("UIBall2"));
 				break;
-			case 0:
+			case 1:
 				Destroy (GameObject.Find ("UIBall1"));
 				break;
-			case -1:
+			case 0:
 				Destroy (GameObject.Find ("Ball"));
 				break;
 			}
 			//When out of balls
-			if (lives > -1) {
+			if (lives == 0) {
+				sender.startSendingProcess();
+			}
+			if(lives > 0){
 				float time = ball.getterTrail ();
 				ball.removeTrail ();
 				otherRigidBody.position = ballPosition;

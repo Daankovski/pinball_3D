@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Pusher : MonoBehaviour {
 
+<<<<<<< HEAD
     //Made by Danny Kruiswijk
 
     private Rigidbody _rigidbody;
@@ -20,6 +21,14 @@ public class Pusher : MonoBehaviour {
     private float _speed = 0f;
     private float mass = 0f;
     private int num;
+=======
+	//Made by Danny Kruiswijk
+	
+	private Rigidbody _rigidbody;
+	private Vector3 _position;
+	private Vector3 initialPosition;
+	private float _speed = 0f;
+>>>>>>> b9153217079e8cdc5b82468078009411deb96516
 	
 	void Start () {
 		initialPosition = transform.position;
