@@ -16,6 +16,7 @@ public class WallPlacer : MonoBehaviour {
 	}
 
 	void Update () {
+		//Moving the small wall at the end of the spring so the balls cannot get back in
 		switch (isTrigger) {
 		case true:
 			wall.transform.position = initialPosition;
@@ -26,35 +27,15 @@ public class WallPlacer : MonoBehaviour {
 		}
 	}
 
+	//There is an invisible wall with a box collider that checks if a ball is currently in the shaft
 	void OnTriggerEnter(Collider other) {
 		if (other.transform.tag == "Ball") {
 			isTrigger = true;
 		}
 	}
-
 	void OnTriggerExit(Collider other){
 		if(other.transform.tag == "Ball"){
 			isTrigger = false;
 		}
 	}
-	/*
-	void OnTriggerStay(Collider other){
-		switch (other.transform.tag) {
-		case "Ball":
-			Debug.Log("Ball");
-			isTrigger = true;
-			break;
-		case "ExtraBall":
-			isTrigger = true;
-			break;
-		default:
-			Debug.Log("Hallo");
-			isTrigger = false;
-			break;
-		}
-		if (other.transform.tag == "Ball" || other.transform.tag == "ExtraBall") {
-			isTrigger = true;
-		}
-	}
-	*/
 }
