@@ -1,44 +1,37 @@
 fileFormatVersion: 2
-guid: cfb073dc03295c546b826ae3e05ba459
-timeCreated: 1444115446
+guid: 1b3ad94a13ca830448ce80f01fb5d344
+timeCreated: 1446027461
 licenseType: Free
 SketchUpImporter:
   generateBackFace: 0
   mergeCoplanarFaces: 0
-  selectedNodes: 000000000100000002000000030000000400000005000000
+  selectedNodes: 000000000100000002000000
   assetHash:
     serializedVersion: 2
-    Hash: 1fb186e475849ad75b6adc305c87ebf7
-  longitude: -105.24213899999999
-  latitude: 40.018309000000002
+    Hash: bb701803112fa36be6817a9cb0bc60a3
+  longitude: 2.1829999999999998
+  latitude: 41.383000000000003
   northCorrection: -0
   fileUnit: 0
   sketchUpImportData:
     defaultCamera:
-      position: {x: 18.3578148, y: 7.64746094, z: 4.22329426}
-      lookAt: {x: 9.84074306, y: 5.6862812, z: 1.9893018}
-      up: {x: -.210289359, y: .976081967, z: -.0551580265}
-      fov: 35
+      position: {x: 6.88416195, y: .77775538, z: -1.04454124}
+      lookAt: {x: -5.47237444, y: -.696084976, z: 1.49195468}
+      up: {x: -.113680005, y: .993243337, z: .0233357362}
+      fov: 30
       aspectRatio: 0
       orthoSize: 1
       isPerspective: 1
     scenes: []
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: Group 1
-    100002: LegLeveler
-    100004: Plug
-    100006: //RootNode
-    400000: Group 1
-    400002: LegLeveler
-    400004: Plug
-    400006: //RootNode
-    2300000: LegLeveler
-    2300002: Plug
-    3300000: LegLeveler
-    3300002: Plug
-    4300000: Mesh LegLeveler
-    4300002: Mesh Plug
+    100000: Deimos
+    100002: //RootNode
+    400000: Deimos
+    400002: //RootNode
+    2300000: Deimos
+    3300000: Deimos
+    4300000: Mesh Deimos
   materials:
     importMaterials: 1
     materialName: 2

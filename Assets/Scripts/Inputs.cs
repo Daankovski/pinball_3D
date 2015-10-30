@@ -26,13 +26,11 @@ public class Inputs : MonoBehaviour {
             if (_pusher._Speed < 60 || _pusher._Speed < 140)
             {
                 _pusher.OnKeyDown = true;
-
             }
 
         }
         else
         {
-
             _pusher.OnKeyDown = false;
             _pusher.Mass = 1f;
         }
